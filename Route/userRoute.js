@@ -6,12 +6,13 @@ router
   .route('/')
   .get(userController.getAllUser)
   .post(userController.createUser)
-  .delete(userController.removeUser);
   
 router
   .route('/:id')
   .get(userController.getUserById)
   .patch(userController.updateUser)
+  .delete(userController.removeUser);
+
  
 
 module.exports = router

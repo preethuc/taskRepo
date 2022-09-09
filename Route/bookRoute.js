@@ -6,10 +6,16 @@ router
   .route('/')
   .get(bookController.getAllBooks)
   .post(bookController.createBook)
-  .delete(bookController.removeBook);
 router
   .route('/:id')
   .get(bookController.getBookById)
   .patch(bookController.updateBook)
-  
+  .delete(bookController.removeBook);
+
+
+router
+  .route('/get-books-by-user/:book_id')
+  .get(bookController.getBookByUserId)
+
+
 module.exports = router

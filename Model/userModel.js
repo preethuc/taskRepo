@@ -19,12 +19,10 @@ const userSchema = new mongoose.Schema({
     },
     gender: {
         type: String
+    },
+    books:{
+
     }
-    // book_id: {
-    //     type: mongoose.Schema.Types.ObjectId, 
-    //     ref: 'Book', 
-    //     required: true
-    // }
 })
 
 const User = mongoose.model('User',userSchema);

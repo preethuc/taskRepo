@@ -82,7 +82,7 @@ exports.updateUser = (async (req, res, next) => {
 exports.removeUser = (async (req, res, next) => {
 
   try{ 
-    const users = await User.deleteMany();
+    const users = await User.findByIdAndDelete();
 
     res.status(204).json({
       status: 'success',
