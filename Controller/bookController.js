@@ -40,8 +40,6 @@ try{ const books = await Book.findById(req.params.id);
 //POST BOOK
 exports.createBook = (async (req, res, next) => {
   
-  //const newTour = new Tour({})
-  // newTour.save()
   try
   {
   const newBook = await Book.create(req.body)
@@ -64,7 +62,7 @@ exports.createBook = (async (req, res, next) => {
  }
 })
 
-// PATCH / PUT TOUR
+// PATCH BOOK
 exports.updateBook = (async (req, res, next) => {
    try{ const books = await Book.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -85,7 +83,7 @@ exports.updateBook = (async (req, res, next) => {
     });
    }
 });
-//DELETE USER
+//DELETE BOOK
 exports.removeBook = (async (req, res, next) => {
 try{
    const Books = await Book.deleteMany();

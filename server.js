@@ -10,5 +10,5 @@ mongoose.connection
     console.log('error is:', error);
   });
 
-//4.START SERVER
+//START SERVER
 const server = app.listen(3000, () => console.log('Listening on the PORT 3000'));
