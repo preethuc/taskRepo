@@ -1,34 +1,9 @@
 const Book = require('../Model/bookModel');
 
-
-
 //GET ALL DATA
 exports.getAllBooks = async (req, res, next) => {
   //EXECUTE THE QUERY
   try {
-
-    const books = await Book.find().populate('user_id', 'name')
-
-    //SEND RESPONSE
-    res.status(200).json({
-      status: 'success',
-      results: books.length,
-      data: {
-        books
-      },
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: false,
-      message: "unable to fetch all the data from book"
-    });
-  }
-};
-//GET ALL DATA
-exports.getAllBooks = async (req, res, next) => {
-  //EXECUTE THE QUERY
-  try {
-
     // const books = await Book.find().populate('user_id', 'name')
     const books = await Book.find()
 
@@ -47,8 +22,6 @@ exports.getAllBooks = async (req, res, next) => {
     });
   }
 };
-
-
 //GET Book by Id
 exports.getBookById = async (req, res, next) => {
   try {
@@ -96,11 +69,8 @@ exports.createBook = (async (req, res, next) => {
       bookName: req.body.bookName,
       genere: req.body.genere,
       authorName: req.body.authorName,
-      // user_id: req.body.user_id
     });
-
     // books.save((err, result) => {
-
     //   if (err) {
     //     return res.status(400).json({
     //       status: 400,
@@ -110,9 +80,7 @@ exports.createBook = (async (req, res, next) => {
     //   return res.json({
     //     message: "Book record inserted successfully",
     //     data: result
-
     //   })
-
     // })
     books.save()
     res.status(201).json({
@@ -136,7 +104,6 @@ exports.updateBook = (async (req, res, next) => {
       new: true,
       runValidators: true,
     });
-
     res.status(200).json({
       status: 'success',
       book: '<Updated books here....!>',
@@ -155,7 +122,6 @@ exports.updateBook = (async (req, res, next) => {
 exports.removeBook = (async (req, res, next) => {
   try {
     const Books = await Book.findByIdAndDelete();
-
     res.status(204).json({
       status: 'success',
       data: null,

@@ -13,14 +13,15 @@ const userSchema = new mongoose.Schema({
     },
     email:{
         type:String,
-        required: [true, 'User must have a emailId'],
-        unique: [true, 'User mailId must be unique'],
+        required: [true,'User must have a emailId'],
+        unique: [true,'User mailId must be unique'],
         validate: [validator.isEmail, 'please provide a valid emailId']
     },
     gender: {
         type: String
     },
-    
+    books: [ { type: mongoose.Schema.Types.ObjectId  ,ref:'Book',require:true}]
+
 })
 
 const User = mongoose.model('User',userSchema);
