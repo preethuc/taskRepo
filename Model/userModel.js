@@ -20,9 +20,7 @@ const userSchema = new mongoose.Schema({
     gender: {
         type: String
     },
-    books:{
-
-    }
+    
 })
 
 const User = mongoose.model('User',userSchema);

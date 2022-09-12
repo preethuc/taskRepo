@@ -9,10 +9,12 @@ router
   
 router
   .route('/:id')
-  .get(userController.getUserById)
+  .get(userController.getBookAndUser)
   .patch(userController.updateUser)
   .delete(userController.removeUser);
 
- 
+ router
+ .route('/Users-buy-Books')
+ .post(userController.userBuyDetails)
 
 module.exports = router

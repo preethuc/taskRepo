@@ -30,7 +30,7 @@ exports.getAllBooks = async (req, res, next) => {
   try {
 
     // const books = await Book.find().populate('user_id', 'name')
-    const books = await Book.find().populate('user_id','name').exec();
+    const books = await Book.find()
 
     //SEND RESPONSE
     res.status(200).json({
@@ -68,7 +68,6 @@ exports.getBookById = async (req, res, next) => {
   }
 };
 
-
 //GET Books by UserId
 exports.getBookByUserId = async (req, res, next) => {
   try {
@@ -97,25 +96,25 @@ exports.createBook = (async (req, res, next) => {
       bookName: req.body.bookName,
       genere: req.body.genere,
       authorName: req.body.authorName,
-      user_id: req.body.user_id
+      // user_id: req.body.user_id
     });
 
-    books.save((err, result) => {
+    // books.save((err, result) => {
 
-      if (err) {
-        return res.status(400).json({
-          status: 400,
-          message: err.message
-        })
-      }
+    //   if (err) {
+    //     return res.status(400).json({
+    //       status: 400,
+    //       message: err.message
+    //     })
+    //   }
+    //   return res.json({
+    //     message: "Book record inserted successfully",
+    //     data: result
 
-      return res.json({
-        message: "Book record inserted successfully",
-        data: result
+    //   })
 
-      })
-
-    })
+    // })
+    books.save()
     res.status(201).json({
       status: 'success',
       data: {
