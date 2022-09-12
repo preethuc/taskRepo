@@ -84,7 +84,7 @@ exports.getBookAndUser = (async(req,res,next)=>{
   try{
     const usersBook = await UsersBook.find({
      book_id:req.params.id
-    }).populate('book_id').exec();
+    }).exec();
 
     res.status(200).json({
       status: 'success',
@@ -99,6 +99,7 @@ exports.getBookAndUser = (async(req,res,next)=>{
     });
   }
 }) 
+//POST UserBuyBooks
 exports.userBuyDetails = (async(req,res,next)=>{
  
   try{ 
@@ -107,6 +108,26 @@ exports.userBuyDetails = (async(req,res,next)=>{
       status: 'success',
       data: {
         user: newUser,
+      },
+    });
+  } catch(err){
+    res.status(400).json({ 
+      status: 'fail', 
+      message: "unable to create the data in user" 
+    });
+  }
+})
+
+//get all userBuy detail
+exports.getAlluserBuyDetails = (async(req,res,next)=>{
+ 
+  try{ 
+    const usersBook = await UsersBook.find().populate('user_id','name')
+    res.status(200).json({
+      status: 'success',
+      results: usersBook.length,
+      data: {
+        usersBook
       },
     });
   } catch(err){

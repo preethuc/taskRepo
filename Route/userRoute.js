@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../Controller/userController')
-
+router
+.route('/Users-buy-Books')
+.post(userController.userBuyDetails)
+.get(userController.getAlluserBuyDetails)
 router
   .route('/')
   .get(userController.getAllUser)
@@ -13,8 +16,7 @@ router
   .patch(userController.updateUser)
   .delete(userController.removeUser);
 
- router
- .route('/Users-buy-Books')
- .post(userController.userBuyDetails)
+
+
 
 module.exports = router

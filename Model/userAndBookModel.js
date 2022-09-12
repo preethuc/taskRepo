@@ -10,6 +10,9 @@ const userGetBookSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Book', 
         required: true 
+     },
+     createdAt:{
+      type:Date
      }
 })
 
